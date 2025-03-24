@@ -16,8 +16,7 @@ type RootTabParamList = {
   Profile: undefined;
 };
 
-const Tab = createBottomTabNavigator<RootTabParamList>();
-
+const Tab = createBottomTabNavigator();
 // 🎨 Fonction qui retourne l'icône du tab bar
 const getTabBarIcon = (
   route: RouteProp<RootTabParamList, keyof RootTabParamList>,
@@ -43,7 +42,7 @@ const getTabBarIcon = (
     default:
       iconName = 'help-circle-outline';
   }
-
+  console.log(`Rendering icon for ${route}: ${iconName}`); // Debugger la valeur de iconName
   return <Ionicons name={iconName} size={size} color={color} />;
 };
 
@@ -51,14 +50,22 @@ const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => getTabBarIcon(route, focused, color, size),
-          tabBarActiveTintColor: '#FF6F61', // Couleur active (rouge moderne)
-          tabBarInactiveTintColor: '#AAA',  // Couleur inactive
-          tabBarShowLabel: true, // Masquer les labels des icônes
-          tabBarStyle: styles.tabBarStyle,
-          headerShown: false,
-        })}
+       screenOptions={({ route }: { route: RouteProp<RootTabParamList, keyof RootTabParamList> }) => ({
+        tabBarIcon: ({
+          focused,
+          color,
+          size,
+        }: {
+          focused: boolean;
+          color: string;
+          size: number;
+        }) => getTabBarIcon(route, focused, color, size),
+        tabBarActiveTintColor: '#FF6F61', // Couleur active (rouge moderne)
+        tabBarInactiveTintColor: '#AAA',  // Couleur inactive
+        tabBarShowLabel: true, // Masquer les labels des icônes
+        tabBarStyle: styles.tabBarStyle,
+        headerShown: false,
+      })}
       >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Avatar" component={AvatarScreen} />
