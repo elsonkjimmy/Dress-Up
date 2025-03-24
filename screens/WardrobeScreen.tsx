@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 
 const WardrobeScreen = () => {
   const wardrobeItems = [
-    { id: 1, name: 'Robe Noire', image: require('../assets/black-dress.png') },    
+    { id: 1, name: 'Robe Noire', image: require('../assets/black-dress.png') },
     { id: 2, name: 'Jean Slim', image: require('../assets/skinny-jeans.jpeg') },
     { id: 3, name: 'T-shirt Bleu', image: require('../assets/blue-shirt.jpeg') },
     // Ajoute d'autres articles ici...
@@ -12,7 +12,6 @@ const WardrobeScreen = () => {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Ma Garde-Robe</Text>
-      
       {wardrobeItems.map((item) => (
         <View key={item.id} style={styles.itemContainer}>
           <Image source={item.image} style={styles.image} />
