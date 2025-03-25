@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+//import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, RouteProp } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -63,7 +63,7 @@ const AppNavigator = () => {
         tabBarActiveTintColor: '#FF6F61', // Couleur active (rouge moderne)
         tabBarInactiveTintColor: '#AAA',  // Couleur inactive
         tabBarShowLabel: true, // Masquer les labels des icônes
-        tabBarStyle: styles.tabBarStyle,
+        //tabBarStyle: styles.tabBarStyle,
         headerShown: false,
       })}
       >
@@ -76,7 +76,7 @@ const AppNavigator = () => {
   );
 };
 
-// 🎨 Style de la barre de navigation
+/*/ 🎨 Style de la barre de navigation
 const styles = StyleSheet.create({
   tabBarStyle: {
     position: 'absolute',
@@ -93,5 +93,5 @@ const styles = StyleSheet.create({
     elevation: 5, // Ombre sur Android
   },
 });
-
+*/
 export default AppNavigator;
