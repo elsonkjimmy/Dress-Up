@@ -2,6 +2,7 @@ import UIKit
 import React
 import React_RCTAppDelegate
 import ReactAppDependencyProvider
+import SplashScreen // Importez le package
 
 @main
 class AppDelegate: RCTAppDelegate {
@@ -9,8 +10,10 @@ class AppDelegate: RCTAppDelegate {
     self.moduleName = "DressUp"
     self.dependencyProvider = RCTAppDependencyProvider()
 
-    // You can add your custom initial props in the dictionary below.
-    // They will be passed down to the ViewController used by React Native.
+    // Afficher l'écran de démarrage au lancement
+    SplashScreen.show() // Affiche l'écran de démarrage au début
+
+    // Vous pouvez ajouter des propriétés initiales ici si nécessaire
     self.initialProps = [:]
 
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -22,9 +25,9 @@ class AppDelegate: RCTAppDelegate {
 
   override func bundleURL() -> URL? {
 #if DEBUG
-    RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index")
+    RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index")  // En mode développement
 #else
-    Bundle.main.url(forResource: "main", withExtension: "jsbundle")
+    Bundle.main.url(forResource: "main", withExtension: "jsbundle")  // En mode production
 #endif
   }
 }

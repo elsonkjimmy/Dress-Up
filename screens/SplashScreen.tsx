@@ -1,25 +1,35 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 
 export default function SplashScreen({ onStart }: { onStart: () => void }) {
   return (
     <View style={styles.container}>
-      {/* Message de bienvenue */}
-      <Text style={styles.welcomeMessage}>Bienvenue sur DressUp !</Text>
-
-      {/* Logo ou image représentative */}
-      <Image
-        source={require('../assets/images/1.jpeg')} // Assure-toi que le chemin est correct
+      {/* Animation du logo */}
+      <Animatable.Image
+        animation="bounceIn"
+        duration={1500}
+        source={require('../assets/images/1.jpeg')}
         style={styles.logo}
+        resizeMode="contain"
       />
 
-      {/* Slogan */}
-      <Text style={styles.slogan}>Choisissez votre style, créez vos looks</Text>
+      {/* Animation du message de bienvenue */}
+      <Animatable.Text animation="fadeInDown" delay={500} style={styles.welcomeMessage}>
+        <Text>Bienvenue sur DressUp !</Text>
+      </Animatable.Text>
 
-      {/* Bouton pour démarrer */}
-      <TouchableOpacity onPress={onStart} style={styles.button}>
-        <Text style={styles.buttonText}>Commencer</Text>
-      </TouchableOpacity>
+      {/* Animation du slogan */}
+      <Animatable.Text animation="fadeInUp" delay={800} style={styles.slogan}>
+        <Text>Choisissez votre style, créez vos looks</Text>
+      </Animatable.Text>
+
+      {/* Bouton stylisé avec effet de zoom */}
+      <Animatable.View animation="pulse" iterationCount="infinite" delay={1500}>
+        <TouchableOpacity onPress={onStart} style={styles.button}>
+          <Text style={styles.buttonText}>Commencer</Text>
+        </TouchableOpacity>
+      </Animatable.View>
     </View>
   );
 }
@@ -29,38 +39,43 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5F5F5', // Fond doux
+    backgroundColor: '#FF6F61', // Couleur plus moderne
     padding: 20,
   },
   welcomeMessage: {
-    fontSize: 26,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: '#FF6F61',
+    color: '#Ffff',
     textAlign: 'center',
     marginBottom: 20,
   },
   logo: {
-    width: 250,
-    height: 220,
-    marginBottom: 30,
+    width: 260,
+    height: 230,
+    marginBottom: 20,
+    borderRadius: 400 
   },
   slogan: {
     fontSize: 20,
     fontWeight: '600',
     textAlign: 'center',
     marginBottom: 30,
-    color: '#333',
+    color: '#fff',
   },
   button: {
-    backgroundColor: '#FF6F61',
+    backgroundColor: '#fff',
     paddingVertical: 15,
     paddingHorizontal: 60,
     borderRadius: 25,
-    marginBottom: 20,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 5,
   },
   buttonText: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#FF6F61',
   },
 });

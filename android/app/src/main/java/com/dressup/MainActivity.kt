@@ -1,22 +1,22 @@
-package com.dressup
+package com.dressup;
 
-import com.facebook.react.ReactActivity
-import com.facebook.react.ReactActivityDelegate
-import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
-import com.facebook.react.defaults.DefaultReactActivityDelegate
+import android.os.Bundle;
+import com.facebook.react.ReactActivity;
+import com.facebook.react.ReactActivityDelegate;
+import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled;
+import com.facebook.react.defaults.DefaultReactActivityDelegate;
+//import org.devio.rn.splashscreen.SplashScreen; // Importez SplashScreen si nécessaire
 
 class MainActivity : ReactActivity() {
 
-  /**
-   * Returns the name of the main component registered from JavaScript. This is used to schedule
-   * rendering of the component.
-   */
-  override fun getMainComponentName(): String = "DressUp"
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState);
+    // Supprimez la ligne suivante pour ne pas afficher le Splash Screen natif
+    // SplashScreen.show(this);  
+  }
 
-  /**
-   * Returns the instance of the [ReactActivityDelegate]. We use [DefaultReactActivityDelegate]
-   * which allows you to enable New Architecture with a single boolean flags [fabricEnabled]
-   */
+  override fun getMainComponentName(): String = "DressUp"  // Nom du composant React Native
+
   override fun createReactActivityDelegate(): ReactActivityDelegate =
       DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)
 }
