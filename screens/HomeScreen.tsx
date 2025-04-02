@@ -77,7 +77,7 @@ const HomeScreen = ({ navigation }: any) => {
           </View>
           <View style={styles.featureItem}>
             <Text style={styles.featureIcon}>🌟</Text>
-            <Text style={styles.featureText}>Tendances 2023</Text>
+            <Text style={styles.featureText}>Tendances 2024</Text>
           </View>
           <View style={styles.featureItem}>
             <Text style={styles.featureIcon}>💡</Text>
@@ -125,9 +125,9 @@ const styles = StyleSheet.create({
     paddingRight:30,
     borderRadius: 15,
     marginVertical: 10,
-    width: "90%",
-    alignItems: "center",
-    shadowColor: "#000",
+    width: '90%',
+    alignItems: 'center',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
@@ -137,18 +137,18 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   buttonPrimary: {
-    backgroundColor: "#FF6B6B",
+    backgroundColor: '#FF6B6B',
   },
   buttonSecondary: {
-    backgroundColor: "#4ECDC4",
+    backgroundColor: '#4ECDC4',
   },
   buttonAccent: {
-    backgroundColor: "#FFA07A",
+    backgroundColor: '#FFA07A',
   },
   buttonText: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   buttonSubtext: {
     color: 'rgba(255,255,255,0.8)',
