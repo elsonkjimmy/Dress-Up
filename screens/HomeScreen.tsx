@@ -8,11 +8,11 @@ import {
   ImageBackground,
   Dimensions,
   ScrollView,
-  Image,
   Platform,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Carousel from 'react-native-reanimated-carousel';
+import TestimonialSlider from '../components/TestimonialSlider';
 
 const { width: screenWidth } = Dimensions.get('window');
 
@@ -50,7 +50,7 @@ const HomeScreen = ({ /*navigation */} : any ) => {
       id: 1,
       title: 'Nouvelle Collection Été',
       subtitle: 'Découvrez les dernières tendances',
-      image: require('../assets/summer-banner.jpg'),
+      image: require('../assets/summer-banner.jpeg'),
     },
     {
       id: 2,
@@ -92,7 +92,7 @@ const HomeScreen = ({ /*navigation */} : any ) => {
       {/* Header */}
       <View style={styles.header}>
         <ImageBackground
-          source={require('../assets/fashion-header.jpg')}
+          source={require('../assets/images/fashion-header.jpeg')}
           style={styles.headerBackground}
           resizeMode="cover"
         >
@@ -201,24 +201,30 @@ const HomeScreen = ({ /*navigation */} : any ) => {
             <View style={[styles.featureIconWrapper, { backgroundColor: '#FF6B6B20' }]}>
               <Icon name="style" size={24} color="#FF6B6B" />
             </View>
-            <Text style={styles.featureTitle}>10 000+ vêtements</Text>
-            <Text style={styles.featureDescription}>Collection exhaustive pour tous les styles</Text>
+            <View style={styles.textContainer}>
+               <Text style={styles.featureTitle}>10 000+ vêtements</Text>
+               <Text style={styles.featureDescription}>Collection exhaustive pour tous les styles</Text>
+            </View>
           </View>
 
           <View style={styles.featureCard}>
             <View style={[styles.featureIconWrapper, { backgroundColor: '#4ECDC420' }]}>
               <Icon name="trending-up" size={24} color="#4ECDC4" />
             </View>
-            <Text style={styles.featureTitle}>Tendances 2024</Text>
-            <Text style={styles.featureDescription}>Restez à jour avec les dernières modes</Text>
+            <View style={styles.textContainer}>
+              <Text style={styles.featureTitle}>Tendances 2024</Text>
+              <Text style={styles.featureDescription}>Restez à jour avec les dernières modes</Text>
+            </View>
           </View>
 
           <View style={styles.featureCard}>
             <View style={[styles.featureIconWrapper, { backgroundColor: '#FFA07A20' }]}>
               <Icon name="lightbulb" size={24} color="#FFA07A" />
             </View>
-            <Text style={styles.featureTitle}>Suggestions intelligentes</Text>
-            <Text style={styles.featureDescription}>Recommandations personnalisées</Text>
+            <View style={styles.textContainer}>
+              <Text style={styles.featureTitle}>Suggestions intelligentes</Text>
+              <Text style={styles.featureDescription}>Recommandations personnalisées</Text>
+            </View>
           </View>
         </View>
       </View>
@@ -226,19 +232,7 @@ const HomeScreen = ({ /*navigation */} : any ) => {
       {/* Témoignage */}
       <View style={styles.testimonialSection}>
         <Text style={styles.sectionTitle}>Ce qu'ils disent de nous</Text>
-
-        <View style={styles.testimonialCard}>
-          <Image
-            source={require('../assets/user-testimonial.jpg')}
-            style={styles.testimonialImage}
-          />
-          <View style={styles.testimonialContent}>
-            <Text style={styles.testimonialText}>
-              "Fashion Avatar a révolutionné ma façon de m'habiller. Les suggestions sont toujours parfaites!"
-            </Text>
-            <Text style={styles.testimonialAuthor}>- Sophie, 28 ans</Text>
-          </View>
-        </View>
+        <TestimonialSlider />
       </View>
     </ScrollView>
   );
@@ -274,13 +268,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: 'rgba(255,255,255,0.9)',
     fontFamily: Platform.OS === 'ios' ? 'Helvetica Neue' : 'sans-serif',
+    marginBottom:18,
   },
   carouselWrapper: {
-    marginTop: -30,
+    marginTop: -10,
     marginBottom: 20,
   },
   carouselItem: {
-    width: screenWidth - 40,
+    width: screenWidth - 50000,
     height: 180,
     borderRadius: 12,
     overflow: 'hidden',
@@ -371,59 +366,77 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   featuresSection: {
-    paddingHorizontal: 20,
-    marginBottom: 30,
-  },
-  sectionTitle: {
-    fontSize: 22,
-    fontWeight: '700',
-    color: '#333',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  featuresGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-  },
-  featureCard: {
-    width: '100%',
-    backgroundColor: '#fff',
-    borderRadius: 12,
-    padding: 20,
-    marginBottom: 15,
-    flexDirection: 'row',
-    alignItems: 'center',
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.05,
-        shadowRadius: 6,
-      },
-      android: {
-        elevation: 3,
-      },
-    }),
-  },
-  featureIconWrapper: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 15,
-  },
-  featureTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#333',
-    marginBottom: 3,
-  },
-  featureDescription: {
-    fontSize: 12,
-    color: '#666',
-  },
+  paddingHorizontal: 24,
+  paddingVertical: 32,
+  marginBottom: 40,
+  backgroundColor: '#F9F9F9',
+},
+
+sectionTitle: {
+  fontSize: 24,
+  fontWeight: 'bold',
+  color: '#222',
+  marginBottom: 28,
+  textAlign: 'center',
+},
+
+featuresGrid: {
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'space-between',
+  gap: 12, // utilise si supporté par ton environnement RN
+},
+
+featureCard: {
+  width: '100%',
+  backgroundColor: '#FFFFFF',
+  borderRadius: 16,
+  padding: 20,
+  marginBottom: 20,
+  flexDirection: 'row',
+  alignItems: 'center',
+  ...Platform.select({
+    ios: {
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 3 },
+      shadowOpacity: 0.08,
+      shadowRadius: 6,
+    },
+    android: {
+      elevation: 4,
+    },
+  }),
+},
+
+featureIconWrapper: {
+  width: 56,
+  height: 56,
+  borderRadius: 28,
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: '#EFEFEF',
+  marginRight: 16,
+},
+textContainer: {
+  flex: 1,
+  flexDirection: 'column',
+},
+
+
+featureTitle: {
+  fontSize: 17,
+  fontWeight: '600',
+  color: '#1C1C1C',
+  marginBottom: 4,
+},
+
+featureDescription: {
+  fontSize: 13,
+  color: '#666',
+  lineHeight: 18,
+  maxWidth: '85%',
+},
+
   testimonialSection: {
     paddingHorizontal: 20,
   },
