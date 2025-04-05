@@ -46,7 +46,7 @@ const getTabBarIcon = (
   return <Ionicons name={iconName} size={size} color={color} />;
 };
 
-const AppNavigator = () => {
+const AppNavigator : any = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
