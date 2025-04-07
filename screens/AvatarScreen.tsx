@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import WebView from 'react-native-webview';
 import { View, StyleSheet, ActivityIndicator, Text } from 'react-native';
 
-const MODEL_URL = "https://models.readyplayer.me/64a9375f41e918001d8a333c.glb";
+const MODEL_URL = "https://firebasestorage.googleapis.com/v0/b/papersbook-f3826.appspot.com/o/icons%2Favatar.gbl?alt=media&token=https://firebasestorage.googleapis.com/v0/b/papersbook-f3826.appspot.com/o/icons%2Favatar.glb?alt=media&token=4913d928-b700-45ea-ade1-fa3cb7b001ca";
 console.log("MODEL_URL:", MODEL_URL);
 
 const AvatarScreen = () => {

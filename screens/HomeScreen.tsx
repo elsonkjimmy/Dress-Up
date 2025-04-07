@@ -62,7 +62,7 @@ const HomeScreen = ({ /*navigation */} : any ) => {
       id: 3,
       title: 'Promotions Exclusives',
       subtitle: "Jusqu'à -50% sur les articles sélectionnés",
-      image: require('../assets/sale-banner.jpg'),
+      image: require('../assets/images/sale-banner.jpg'),
     },
   ];
 

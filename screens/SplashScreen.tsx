@@ -51,9 +51,9 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: 260,
-    height: 230,
+    height: 260,
     marginBottom: 20,
-    borderRadius: 400 
+    borderRadius: 130, 
   },
   slogan: {
     fontSize: 20,

@@ -1,4 +1,4 @@
-import { View, FlatList, StyleSheet, /*Dimensions*/ } from 'react-native';
+import { View, FlatList, StyleSheet } from 'react-native';
 import { useRef, useState, useEffect } from 'react';
 import TestimonialCard from './TestimonialCard';
 
@@ -9,12 +9,12 @@ const testimonials = [
     author: "- Sophie, 28 ans",
   },
   {
-    image: require('../assets/fashion-header.jpg'),
+    image: require('../assets/fashion-header1.jpg'),
     text: "Je me sens plus confiant·e en essayant les tenues sur un avatar qui me ressemble.",
     author: "- Marc, 22 ans",
   },
   {
-    image: require('../assets/fashion-header.jpg'),
+    image: require('../assets/images/fashion-header2.jpg'),
     text: "DressUp, c’est comme avoir un styliste personnel dans ma poche.",
     author: "- Aïcha, 30 ans",
   },
